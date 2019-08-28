@@ -397,10 +397,11 @@ Matrix4x4 RotationMatrix(const Quaternion& q) {
 		1-2*(q.y*q.y + q.z*q.z),	  2*(q.x*q.y - q.z*q.w),	  2*(q.x*q.z + q.y*q.w),	0,
 		  2*(q.x*q.y + q.z*q.w),	1-2*(q.x*q.x + q.z*q.z),	  2*(q.y*q.z - q.x*q.w),	0,
 		  2*(q.x*q.z - q.y*q.w),	  2*(q.x*q.z + q.x*q.w),	1-2*(q.x*q.x + q.y*q.y),	0,
-							  0,						  0,						  0,	1
+		                     0,		                     0,	                             0,	        1
 	);
 }
 
+//Just crude divide by z for perspective:
 ScreenCoordinate WorldSpaceToScreenSpace(const Vector& v, int height, int width) {
 	ScreenCoordinate returnValue;
 	returnValue.x = int(((v.x/v.z) + 1.0f) * (float(width) / 2.0f));
