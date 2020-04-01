@@ -30,7 +30,7 @@ struct Vector {
 		x = v.x;
 		y = v.y;
 		z = v.z;
-
+		w = v.w;
 		return *this;
 	}
 	Vector& operator += (const Vector& v) {
